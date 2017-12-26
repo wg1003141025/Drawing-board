@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_519837_207qb33ra5qumcxr.css">
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    body{
+        width: 100%;
+        height: 100%;
+        /*overflow: hidden;*/
+    }
+    header{
+        width: 100%;
+        height: 100px;
+        /*border-bottom: 1px solid rgba(0,0,0,0.5);*/
+        box-shadow:0 1px 1px 1px rgba(0,0,255,0.5);
+        display: flex;
+        padding: 0 5%;
+        box-sizing: border-box;
+    }
+    ul{
+        width: auto;
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 10px 30px 0;
+    }
+    ul:first-child{
+        width: 15%;
+        margin-left: 7%;
+    }
+    ul:nth-child(2){
+        width: 28%;
+    }
+    /*ul:last-child{*/
+        /*width: 20%;*/
+    /*}*/
+    li{
+        width: 50px;
+        height: 30px;
+        border: 1px solid #ccc;
+        margin: 0 4px;
+        text-align: center;
+        line-height: 30px;
+    }
+    ul .active{
+        border: 1px solid skyblue;
+        color: skyblue;
+    }
+    .shen{
+        width: 100%;
+        height: 500px;
+        /*background-color: red;*/
+        position: relative;
+
+    }
+    .mask{
+        width: 100%;
+        height: 502px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 10;
+    }
+    canvas{
+        border: 1px solid rgba(0,0,0,0.5);
+    }
+    input[type = number]{
+        width: 91%;
+        height: 90%;
+        border: 0;
+
+    }
+    .eraser1{
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        top: 0;
+        left: 0;
+        background:rgba(0,0,0,0.3);
+        display: none;
+    }
+    .clip{
+        width: 100px;
+        height: 100px;
+        border: 1px dashed red;
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: none;
+    }
+</style>
+<body>
+    <header>
+        <ul class="one">
+            <li id="new" title="新建"><span class="iconfont new">&#xe6bb;</span></li>
+            <li id="preserve" title="保存"><a href=""><span class="iconfont preserve">&#xe63b;</span></a></li>
+            <li id="open" title="打开"><span class="iconfont open">&#xe610;</span></li>
+            <li id="withdraw" title="撤回"><span class="iconfont withdraw">&#xe616;</span></li>
+            <li id="quit" title="退出"><span class="iconfont quit">&#xe815;</span></li>
+            <li id="clip" title="裁剪"><span class="iconfont quit">&#xe600;</span></li>
+        </ul>
+        <ul class="two">
+            <li id="line" title="直线"><span class="iconfont line">&#xe653;</span></li>
+            <li id="dashed" title="虚线"><span class="iconfont dashed">&#xe62e;</span></li>
+            <li id="pencil" title="铅笔"><span class="iconfont pencil">&#xe608;</span></li>
+            <li id="circular" title="圆"><span class="iconfont circular">&#xe63d;</span></li>
+            <li id="rectangle" title="矩形"><span class="iconfont rectangle">&#xe619;</span></li>
+            <li id="polygon" title="多边形"><span class="iconfont polygon">&#xe603;</span></li>
+            <li id="Polygonj" title="多角形"><span class="iconfont Polygonj">&#xe678;</span></li>
+            <li id="font" title="文本"><span class="iconfont font">&#xe628;</span></li>
+            <li id="eraser" title="橡皮"><span class="iconfont eraser">&#xe66d;</span></li>
+        </ul>
+        <ul class="three">
+            <li class="styleBtn" id="fill" title="填充"><span class="iconfont fill">&#xe833;</span></li>
+            <li><input type="color" id="fillstyle"></li>
+            <li class="styleBtn" id="stroke" title="描边"><span class="iconfont stroke">&#xe622;</span></li>
+            <li><input type="color" id="strokestyle"></li>
+            <li>粗细</li>
+            <li><input type="number" value="3"></li>
+        </ul>
+    </header>
+
+    <div class="shen">
+        <div class="mask"></div>
+        <div class="eraser1"></div>
+        <div class="clip"></div>
+        <canvas width="1364px" height="500px"></canvas>
+    </div>
+</body>
+</html>
+<script src="index.js"></script>
+<script src="palette.js"></script>
